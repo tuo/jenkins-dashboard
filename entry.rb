@@ -1,10 +1,11 @@
 require 'rubygems'
-require 'YAML'
+$LOAD_PATH << File.expand_path(File.join(File.dirname(__FILE__), 'lib'))
+require 'dashboard.rb'
 require 'jenkins-remote-api'
 
 
 while true
-  ci_infos = open('config.yml') { |f| YAML.load(f) }
+  ci_infos = Jenkins::Dashboard::YmlReader.parse(File.expand_path(File.dirname(__FILE__) + "/config.yml"))
   result_html = ""
 
   begin
@@ -29,7 +30,7 @@ while true
     result_html << "\n<script type=\"text/javascript\" src=\"build-controller.js\"></script>\n"
     File.open("local_dashboard_part.html", 'w') {|f| f.write(result_html) }
   rescue Exception=>e
-    p "----cannot acess the dash html..........."  << e
+    p "----cannot acess the dash html..........."  << e.inspect
     open("local_dashboard_part.html", 'w') { |f|
       f.puts "<h1> Oooooooooooooops</h1> \n<h4>Error on reading ci infos. Try again..........</h4>"
     }
