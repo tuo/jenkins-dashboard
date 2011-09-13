@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Build Dashboard</title>
+
+        <style>
+
+        body {
+          padding: 10px;
+          margin: 20px;
+          font: bold 3.1em Helvetica, Arial, sans-serif;
+          background-color: #FFF;
+        }
+
+        section, header, footer, aside, nav, article, figure {
+          display: block;
+        }
+
+        article {
+            color: #FFF;
+            float: left;
+            margin: 40px;
+            -moz-box-shadow: 5px 5px 5px #333333;
+            -webkit-box-shadow: 5px 5px 11px #333333;
+            -o-box-shadow: 5px 5px 11px #333333;
+            -ms-box-shadow: 5px 5px 11px #333333;
+            box-shadow: 5px 5px 11px #333333;
+            border-radius: 15px;
+        }
+
+        h1, h2, p {
+            margin: 40px;
+        }
+
+        .success {
+            background:#749a02;
+            -webkit-animation: greenPulse 4s infinite;
+        }
+
+        .building {
+            background: #3861b6;
+        }
+
+        .building-from-failure {
+            background: #3861b6;
+            color: red;
+        }
+
+        .failure{
+            background: #a01208;
+        }
+
+        .aborted {
+          background: gray;
+          color: WhiteSmoke;
+          border: 15px solid SeaShell;
+/*          -webkit-animation: greenPulse 4s infinite;*/
+        }
+
+        .undefined {
+            background: #BBB;
+        }
+
+        .offline {
+            background: white;
+            color: #a01208;
+            border: 15px solid #a01208;
+        }
+
+        .workedon {
+            opacity:.5;
+        }
+
+        .worker {
+            -webkit-transform: rotate(20deg);
+            position: absolute;
+            color: black;
+            border: 10px dashed black;
+            margin: 0;
+            padding: 10px;
+            font-size: 2.5em;
+        }
+
+        .message {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            background: transparent;
+            color: black;
+            -moz-box-shadow: none;
+            -webkit-box-shadow: none;
+            -o-box-shadow: none;
+            -ms-box-shadow: none;
+            box-shadow: none;
+            padding:0;
+        }
+        .message h1{
+          font: bold 44px  Arial,sans-serif;
+        }
+        article{
+          margin:0;
+          padding:20px;
+          margin-bottom:80px;
+              margin-left:40px;
+        }
+
+        .failure, .workedon{
+           opacity:.5;
+        }
+
+
+        @-webkit-keyframes pulse{
+          from {
+            -webkit-transform: scale(1.0);
+            opacity: 0.75;
+          }
+          50% {
+            -webkit-transform: scale(1.2);
+            opacity: 1.0;
+          }
+          to {
+            -webkit-transform: scale(1.0);
+            opacity: 0.75;
+          }
+        }
+
+        @-webkit-keyframes progress_bar{
+          from {
+            width: 58%;
+            opacity: 0.75;
+
+          }
+          50% {
+            width: 96%;
+            opacity: 1.0;
+          }
+          to {
+            width: 58%;
+            opacity: 0.75;
+          }
+        }
+
+        @-webkit-keyframes greenPulse {
+				  from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333;   -webkit-box-shadow: 5px 5px 11px #333333;}
+				  50% { background-color: #91bd09; -webkit-box-shadow: 0 0 18px #91bd09;  -webkit-box-shadow: 15px 15px 32px #333333; }
+				  to { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333;   -webkit-box-shadow: 5px 5px 11px #333333;}
+		}
+
+        #content{
+          background-color: gray;
+          color: orange;
+        }
+         .rotate{
+/*                     -webkit-transform: rotate(30deg);*/
+                 -webkit-animation-name: pulse_claimed;
+               -webkit-animation-duration: 4s;
+           -webkit-animation-iteration-count: infinite;
+
+        }
+
+                @-webkit-keyframes pulse_claimed{
+		          from {
+		            -webkit-transform: scale(1.0);
+		              -webkit-transform: rotate(30deg);
+		          }
+		          50% {
+		             -webkit-transform: scale(1.5);
+		              -webkit-transform: rotate(30deg);
+		          }
+		          to {
+		            -webkit-transform: scale(1.0);
+		             -webkit-transform: rotate(30deg);
+		          }
+        }
+        </style>
+  </head>
+<body>
+    <div id="content">
+       <h4>the builds go here,wait for 8 seconds</h4>
+    </div>
+</body>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<script>
+var auto_refresh = setInterval(
+
+function()
+{
+    // $("#content").load("file:///C:/rea/hudson-kanban/local_dashboard_part.html", function(response, status, xhr) {
+    $("#content").load("local_dashboard_part.html", function(response, status, xhr) {
+
+        $('#content').html(response);
+    });
+
+}, 8000);
+
+
+</script>
+</html>
