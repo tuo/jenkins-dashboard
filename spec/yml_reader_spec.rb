@@ -7,15 +7,15 @@ describe Jenkins::Dashboard::YmlReader do
   it "should load ci address successfully for well-formatted yml" do
     result = Jenkins::Dashboard::YmlReader.parse(fixture_path + "/well_format.yml")
     result.should == [{
-      :ci_address => "http://ci.rea-api.vpc.realestate.com.au:8080/",
-      :jobs_name  => ["job1", "job2"]
+      :ci_address => "http://ci.jruby.org/view/Ruboto/",
+      :jobs_name  => ["job_h1", "job-h2"]
     }]
   end
 
   it "should load ci address successfully for well-formatted_without jobs_names yml" do
     result = Jenkins::Dashboard::YmlReader.parse(fixture_path + "/well_format_without_jobs_name.yml")
     result.should == [{
-      :ci_address => "http://ci.rea-api.vpc.realestate.com.au:8080/"
+      :ci_address => "http://ci.jruby.org/view/Ruboto/"
     }]
   end
 
@@ -23,7 +23,7 @@ describe Jenkins::Dashboard::YmlReader do
   it "should parse right when no prefix colon" do
     result = Jenkins::Dashboard::YmlReader.parse(fixture_path + "/format_tolerable.yml")
     result.should == [{
-      :ci_address => "http://ci.rea-api.vpc.realestate.com.au:8080/",
+      :ci_address => "http://ci.jruby.org/view/Ruboto/",
       "jobs_name" => ["job1", "job2"]
     }]
   end

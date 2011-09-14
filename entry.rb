@@ -20,10 +20,12 @@ while true
       jobs_description = jenkins_ci.jobs_description
 
       jobs_description.each do |job_description|
-        clz = job_description[:status]
         job_name = job_description[:name]
-        worker = "[worker]"
-        result_html <<  "<article class=\"#{clz}\" worker=\"#{worker}\"><header><h1>#{job_name}</h1></header></article>"
+        if jobs_name.include? jobs_name
+          clz = job_description[:status]
+          worker = "[worker]"
+          result_html <<  "<article class=\"#{clz}\" worker=\"#{worker}\"><header><h1>#{job_name}</h1></header></article>"
+        end
       end
     end
     result_html << "<article class=\"message\" worker=\"[worker]\"><h1>#{Time.now.strftime("%Y-%m-%d at %I:%M:%S %p")}</h1></article>"
