@@ -21,7 +21,7 @@ while true
 
       jobs_description.each do |job_description|
         job_name = job_description[:name]
-        if jobs_name.include? jobs_name
+        if jobs_name.include? job_name
           clz = job_description[:status]
           worker = "[worker]"
           result_html <<  "<article class=\"#{clz}\" worker=\"#{worker}\"><header><h1>#{job_name}</h1></header></article>"

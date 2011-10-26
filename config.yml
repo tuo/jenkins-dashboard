@@ -1,3 +1,9 @@
 -
     :ci_address: http://ci.jruby.org/view/Ruboto/
-    :jobs_name: 
+    :jobs_name: [ruboto-core, ruboto-core_pads]
+    
+
+#    if you want to catch all jobs under that url, use it like following:
+#     :jobs_name: 
+
+  
