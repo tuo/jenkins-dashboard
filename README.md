@@ -1,5 +1,8 @@
 Jenkins Dashboard
 =============
+Updated: this dashboard has completely rewritten in pure html5 + jQuery combining with Cross Domain Request.
+				 pls to refer to [jenkins-monitor](https://github.com/tuo/jenkins-monitor) for details.
+=============
 
 A project aims at help you show status of build in blue(building), red(failure), green(success) box on jenkins. 
 
