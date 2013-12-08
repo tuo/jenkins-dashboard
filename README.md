@@ -1,4 +1,4 @@
-Jenkins Dashboard
+Jenkins Dashboard 1
 =============
 Updated: this dashboard has completely rewritten in pure html5 + jQuery combining with Cross Domain Request.
 				 pls to refer to [jenkins-monitor](https://github.com/tuo/jenkins-monitor) for details.
